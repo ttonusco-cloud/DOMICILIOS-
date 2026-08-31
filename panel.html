@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panel de domicilios - La Esquina del Sabor</title>
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+<main class="wrap">
+  <section class="card">
+    <div class="top"><span>🛵</span><div><b>La Esquina del Sabor</b><small>Panel para crear solicitudes</small></div></div>
+    <h1>Crear solicitud para domiciliarios</h1>
+    <p class="intro">Edita los datos, selecciona si el pedido está pagado o no pagado y genera un enlace para compartirlo en el grupo.</p>
+
+    <form id="panel">
+      <div class="grid">
+        <label>Número de pedido *<input id="pedido" required placeholder="000125"></label>
+        <label>Estado del pedido *
+          <select id="estado" required>
+            <option value="pagado">🟢 PAGADO — NO COBRAR</option>
+            <option value="no_pagado">🔴 NO PAGADO — COBRAR AL CLIENTE</option>
+          </select>
+        </label>
+      </div>
+
+      <label>Lugar de recogida *<input id="recogida" required placeholder="Punto 2 — Cuba"></label>
+      <label>Ciudad / zona de entrega *<input id="entrega" required placeholder="Pereira — Cuba"></label>
+      <label>Dirección de entrega *<input id="direccion" required placeholder="Calle 20 #15-30"></label>
+      <label>Valor del domicilio<input id="valor" type="number" min="0" placeholder="5000"></label>
+
+      <div id="preview" class="preview"></div>
+
+      <div class="actions">
+        <button type="submit">🔗 Generar enlace</button>
+        <button type="button" id="copy" class="secondary">📋 Copiar enlace</button>
+        <button type="button" id="share" class="secondary">📲 Compartir</button>
+      </div>
+    </form>
+
+    <div id="result" class="result hidden">
+      <b>Enlace listo para enviar al grupo:</b>
+      <input id="generated" readonly>
+      <p>El domiciliario abrirá este enlace, verá si debe cobrar o no y llenará su nombre y teléfono para aceptar.</p>
+    </div>
+
+    <div class="notice">🔐 Este formulario no almacena pedidos en una base de datos. El enlace contiene los datos de la solicitud para que puedas editarla y volver a generarla.</div>
+  </section>
+</main>
+<script src="panel.js"></script>
+</body>
+</html>
